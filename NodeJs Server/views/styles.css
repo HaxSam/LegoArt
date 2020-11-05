@@ -1,0 +1,112 @@
+body {
+  text-align: center;
+  font-family: Arial;
+  background-color: #ececec;
+}
+
+* {
+  font-family: Arial;
+  color: grey;
+}
+
+h1 {
+  font-size: 2em;
+  text-transform: uppercase;
+}
+
+h4 {
+  margin: 1em 0 0.75em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+em {
+  font-size: 13px;
+  color: #bfbfbf;
+}
+
+table,
+tr,
+td {
+  border: silver 1px dotted;
+  margin: 0 auto;
+}
+
+.pixel-canvas {
+  background: url(img/default.png);
+  /*background-color: white;*/
+}
+
+.radier {
+  background: url(img/radiergummi.png);
+  background-size: contain;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+tr {
+  height: 10vmax;
+}
+
+td {
+  min-width: 10vmax;
+  box-sizing: border-box;
+}
+
+input[type=number] {
+  width: 3em;
+  border: 1px solid #dcdcdc;
+}
+
+.color {
+  border: 1px solid #dcdcdc;
+  -webkit-appearance: none;
+  padding: 0;
+  border: none;
+  border-radius: 10px;
+  width: 4em;
+  height: 4em;
+  cursor: pointer;
+  margin: 0 auto;
+}
+
+.color::-webkit-color-swatch {
+  border: none;
+  border-radius: 10px;
+  padding: 0;
+}
+
+.color::-webkit-color-swatch-wrapper {
+  border: none;
+  border-radius: 10px;
+  padding: 0;
+}
+
+.inputs {
+  text-align: left;
+  margin-left: 8em;
+  margin-top: 5.35em;
+  border-radius: 7px;
+  border: 1px solid #dcdcdc;
+  padding-left: 2em;
+  padding-top: 0.5em;
+  padding-bottom: 1.5em;
+  width: 200px;
+  background-color: white;
+}
+
+.column {
+  float: left;
+  width: 35%;
+}
+
+.column:last-of-type {
+  width: auto;
+}
+
+.row:after {
+  display: table;
+  clear: both;
+}
