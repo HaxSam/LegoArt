@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>Pixel Art Maker</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Helvetica" />
+  <link rel="stylesheet" href="src/bulma.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div>
+    <h1>Pixel Art Maker</h1>
+    <table class="pixel-canvas"></table>
+    <br />
+    <div></div>
+    <input type="color" class="color pick" value="#FFFFFF" id="#FFFFFF" disabled />
+    <input type="color" class="color" value="#FFB400" id="#FFB400" disabled />
+    <input type="color" class="color" value="#32B5FD" id="#32B5FD" disabled />
+    <input type="color" class="color" value="#0AC832" id="#0AC832" disabled />
+    <input type="color" class="color" value="#CC66CC" id="#CC66CC" disabled />
+    <input type="color" class="color" value="#C83B32" id="#C83B32" disabled />
+    <input type="color" class="color" value="#975F3C" id="#975F3C" disabled />
+    <input type="color" class="color" value="#1E2832" id="#1E2832" disabled />
+    <div class="color radier input" id="#00b140"></div>
+  </div>
+  <br>
+  <button class="button is-success" id="senden">Senden</button>
+</body>
+<script src="src/jquery.min.js"></script>
+<script src="designs.js"></script>
+<script>
+  for (i = 0; i < $("input").length; i++) {
+    $("input")[i].style.backgroundColor = $("input")[i].value;
+  }
+
+  $(document).click(e => {
+    if (e.target.tagName == "INPUT" || e.target.classList.contains("radier")) {
+      document.getElementsByClassName("pick")[0].classList.remove("pick");
+      e.target.classList.add("pick");
+    }
+  });
+  $("#senden").click(e => {
+    console.time("Get Data")
+    let dataTable = [];
+    let size = $("td").length
+    for (i = 0; i < size; i++) {
+      dataTable.push($("td")[i].style.backgroundColor)
+    }
+    console.timeEnd("Get Data")
+    console.time("Change Data")
+    dataTable = dataTable.map(e => {
+      switch (e) {
+        case $("input")[0].style.backgroundColor:
+          return 1;
+        case $("input")[1].style.backgroundColor:
+          return 2;
+        case $("input")[2].style.backgroundColor:
+          return 3;
+        case $("input")[3].style.backgroundColor:
+          return 4;
+        case $("input")[4].style.backgroundColor:
+          return 5;
+        case $("input")[5].style.backgroundColor:
+          return 6;
+        case $("input")[6].style.backgroundColor:
+          return 7;
+        case $("input")[7].style.backgroundColor:
+          return 8;
+
+        default:
+          return 0;
+      }
+    })
+    console.timeEnd("Change Data")
+    $.post("/", {
+      data: dataTable
+    }, e => {
+      console.log(e)
+    })
+  })
+</script>
+
+</html>

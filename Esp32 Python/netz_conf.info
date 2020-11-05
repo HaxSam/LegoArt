@@ -1,0 +1,6 @@
+Um den esp automatisch nach ein netz suchen zu lassen
+
+netzwerken = [
+  ["SSID", "passwort"],
+  ["SSID", "passwort"]
+]
